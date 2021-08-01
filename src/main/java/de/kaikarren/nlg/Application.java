@@ -53,12 +53,12 @@ public class Application {
 
         if(Files.isDirectory(Path.of(path))){
 
-            var fileNames = Utils.listFilesInDirectory(path);
+            var fileNames = Utils.listDirectoryContent(path);
         
             for(var fileName : fileNames){
 
                 // recursively call load to allow also further nested directories
-                nameToResponse.putAll(load(fileName));
+                nameToResponse.putAll(load(path + "/" + fileName));
 
             }
 

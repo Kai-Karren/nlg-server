@@ -18,10 +18,9 @@ public class Utils {
      * @return  A set of the files in the directory
      * @throws IOException
      */
-    public static Set<String> listFilesInDirectory(String dir) throws IOException {
+    public static Set<String> listDirectoryContent(String dir) throws IOException {
         try (Stream<Path> stream = Files.list(Paths.get(dir))) {
             return stream
-              .filter(file -> !Files.isDirectory(file))
               .map(Path::getFileName)
               .map(Path::toString)
               .collect(Collectors.toSet());

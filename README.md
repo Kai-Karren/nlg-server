@@ -7,6 +7,16 @@ responses from your Rasa model to allow changes of the responses without having 
 
 The exposed API follows the format defined by Rasa. See [Rasa NLG Servers](https://rasa.com/docs/rasa/nlg/)
 
+## Usage
+The NLG server loads the responses from a given JSON file or from a directory consisting of multiple response JSON files.
+Using further nested directories is also supported.
+
+### Environment Variable
+
+```
+reponses=<path to our json response file or to a directory of multiple response files>
+```
+
 ## Response File
 The responses have to be defined as JSON in the following format
 ```

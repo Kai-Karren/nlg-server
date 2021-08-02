@@ -30,4 +30,15 @@ public class Slots {
         this.additionalProperties.put(name, value);
     }
 
+    @JsonIgnore
+    public String getSlot(String slotName){
+        var slot = this.additionalProperties.get(slotName);
+
+        if(slot == null){
+            return "";
+        }
+
+        return slot.toString();
+    }
+
 }

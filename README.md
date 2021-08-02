@@ -11,6 +11,11 @@ The exposed API follows the format defined by Rasa. See [Rasa NLG Servers](https
 The NLG server loads the responses from a given JSON file or from a directory consisting of multiple response JSON files.
 Using further nested directories is also supported.
 
+## Features
+
+- Load static response JSON files (single files or from a directory)
+- Use templates in your responses in the form {slotName} or $slotName (see examples section)
+
 ### Environment Variable
 
 ```
@@ -47,6 +52,43 @@ address:port/nlg
 ```
 {
     "text": "Some text",
+}
+```
+
+# Examples
+
+## Slot Template Filling Example
+
+### Response JSON file
+
+```
+{
+  "example": "This is an example response.",
+  "test": "Test 1 2 3.",
+  "utter_template": "Your number is {number}."
+}
+```
+
+### Request
+
+```
+{
+    "response": "utter_template",
+    "tracker": {
+        "sender_id": "user_42",
+        "slots": {
+            "number": "80"
+        }
+    }
+}
+
+```
+
+### Response
+
+```
+{
+    "text": "Your number is 80."
 }
 ```
 

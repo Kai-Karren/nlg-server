@@ -10,8 +10,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-import de.kaikarren.Utils;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -68,7 +66,6 @@ public class Application {
         } else {
 
             // the path points to a file
-
             return loadFile(path);
 
         }
@@ -89,8 +86,6 @@ public class Application {
             return new ObjectMapper().readValue(jsonContent,
                     new TypeReference<>() {
                     });
-
-
 
         } catch (IOException e) {
             log.error(e.getMessage());

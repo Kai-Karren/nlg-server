@@ -1,4 +1,7 @@
 {
   "example": "This is an example response.",
-  "test": "Test 1 2 3."
+  "test": "Test 1 2 3.",
+  "greet": [
+    "Hi", "Hello", "Hey"
+  ]
 }

@@ -27,4 +27,8 @@ public class Utils {
         }
     }
 
+    public static int randomNumber(int max){
+        return (int) (Math.random() * max);
+    }
+
 }

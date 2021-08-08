@@ -43,11 +43,11 @@ public class Application {
 
     }
 
-    public static Map<String, String> load(String path) throws IOException{
+    public static Map<String, Object> load(String path) throws IOException{
 
         // check if the path is a file or a directory
 
-        Map<String, String> nameToResponse = new HashMap<>();
+        Map<String, Object> nameToResponse = new HashMap<>();
 
         if(Files.isDirectory(Path.of(path))){
 
@@ -77,7 +77,7 @@ public class Application {
      * @param fileName The name of the JSON file that should be converted into a Map
      * @return The content of the JSON file as Map<String, String>
      */
-    public static Map<String, String> loadFile(String fileName) {
+    public static Map<String, Object> loadFile(String fileName) {
 
         try {
 

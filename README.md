@@ -15,6 +15,7 @@ Using further nested directories is also supported.
 
 - Load static response JSON files (single files or from a directory)
 - Use templates in your responses in the form {slotName} or $slotName (see examples section)
+- Randomly chose a response from a set of given response variations
 
 ### Environment Variable
 
@@ -27,7 +28,11 @@ The responses have to be defined as JSON in the following format
 ```
 {
   "response_name": "This is an example response.",
-  "example_response": "Test 1 2 3."
+  "example_response": "Test 1 2 3.",
+  "response_with_variations": [
+    "first_variation", 
+    "second_variation"
+  ]
 }
 ```
 

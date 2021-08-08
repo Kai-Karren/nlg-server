@@ -3,17 +3,18 @@ package de.kaikarren.nlg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
 import java.util.Map;
 
 public class StaticResponseManager {
 
     private static final Logger log = LoggerFactory.getLogger(StaticResponseManager.class);
 
-    private Map<String, String> nameToResponseMapping;
+    private Map<String, Object> nameToResponseMapping;
 
     private static StaticResponseManager staticResponseManager = new StaticResponseManager();
 
-    public void initializeResponses(Map<String, String> nameToResponseMapping){
+    public void initializeResponses(Map<String, Object> nameToResponseMapping){
         this.nameToResponseMapping = nameToResponseMapping;
         StringBuilder sb = new StringBuilder();
         for (String responseName : nameToResponseMapping.keySet()){
@@ -24,11 +25,43 @@ public class StaticResponseManager {
     }
 
     public String getResponse(String responseName){
-        return nameToResponseMapping.get(responseName);
+
+        var responseObject = nameToResponseMapping.get(responseName);
+
+        if(responseObject == null){
+            log.error("No response has been been found for responseName {}", responseName);
+            return "";
+        }
+
+        if(isSingleResponse(responseObject)){
+            return nameToResponseMapping.get(responseName).toString();
+        } else {
+            return getRandomResponse(responseObject);
+        }
+
     }
 
     public static StaticResponseManager getInstance(){
         return staticResponseManager;
+    }
+
+    private boolean isSingleResponse(Object responseObject){
+        return responseObject instanceof String;
+    }
+
+    private String getRandomResponse(Object responseObject){
+
+        if(responseObject instanceof List){
+            @SuppressWarnings("unchecked")
+            var responseList = (List<String>) responseObject;
+
+            return responseList.get(Utils.randomNumber(responseList.size()));
+
+        } else {
+            log.error("Invalid response type {}", responseObject.getClass());
+            return "";
+        }
+
     }
 
 }

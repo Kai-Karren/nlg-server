@@ -40,6 +40,8 @@ The responses have to be defined as JSON in the following format
 
 address:port/nlg
 
+The default port is 8080
+
 ## Request Format
 ```
 {
@@ -96,6 +98,26 @@ address:port/nlg
     "text": "Your number is 80."
 }
 ```
+
+## Docker
+
+### Build an Image
+To build the NLG server as a docker container you can use the provided dockerfile as an example
+
+Replace the responses folder with your folder name
+
+```
+docker build -t nlg-server .
+```
+
+### Run the container
+
+Your build container can be run (exposed over port 8082) with the following command or your add it to a docker-compose file.
+
+```
+docker run -p 8082:8080 nlg-server
+```
+
 
 ### Resources
 The POJOs for the Rasa Request and Responses have been generated with https://www.jsonschema2pojo.org/

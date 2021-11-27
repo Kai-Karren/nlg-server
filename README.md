@@ -1,6 +1,6 @@
 # NLG Server
 
-NLG Server is an example for a very simple, Rasa-compatible NLG Server that exposes static responses loaded from a JSON file through a REST API.
+NLG Server is an example for a simple, Rasa-compatible NLG Server that exposes static responses loaded from a JSON file through a REST API.
 
 Because it does not perform Natural Language Generation itself, its purpose is currently limited to separating the
 responses from your Rasa model to allow changes of the responses without having to retrain and upload a new model.
@@ -16,6 +16,7 @@ Using further nested directories is also supported.
 - Load static response JSON files (single files or from a directory)
 - Use templates in your responses in the form {slotName} or $slotName (see examples section)
 - Randomly chose a response from a set of given response variations
+- Can be used with [Rasa](https://rasa.com/)
 
 ### Environment Variable
 

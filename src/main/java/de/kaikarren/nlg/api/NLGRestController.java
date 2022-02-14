@@ -18,7 +18,7 @@ public class NLGRestController {
 
         responseContent = TemplateFillingGenerator.replaceTemplate(responseContent, request.getTracker().getSlots());
 
-        NLGResponse nlgResponse = new NLGResponse();
+        var nlgResponse = new NLGResponse();
         nlgResponse.setText(responseContent);
 
         return nlgResponse;

@@ -27,7 +27,7 @@ public class Application {
 
         var path = System.getenv("responses");
 
-        StaticResponseManager staticResponseManager = StaticResponseManager.getInstance();
+        var staticResponseManager = StaticResponseManager.getInstance();
         
         try {
             var nameToResponse = load(path);
@@ -81,7 +81,7 @@ public class Application {
 
         try {
 
-            String jsonContent = readFileContentAsString(fileName);
+            var jsonContent = readFileContentAsString(fileName);
 
             return new ObjectMapper().readValue(jsonContent,
                     new TypeReference<>() {

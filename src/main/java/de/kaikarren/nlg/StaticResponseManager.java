@@ -1,5 +1,6 @@
 package de.kaikarren.nlg;
 
+import org.apache.commons.text.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +17,7 @@ public class StaticResponseManager {
 
     public void initializeResponses(Map<String, Object> nameToResponseMapping){
         this.nameToResponseMapping = nameToResponseMapping;
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
         for (String responseName : nameToResponseMapping.keySet()){
             sb.append(responseName);
             sb.append(" ");
@@ -29,7 +30,7 @@ public class StaticResponseManager {
         var responseObject = nameToResponseMapping.get(responseName);
 
         if(responseObject == null){
-            log.error("No response has been been found for responseName {}", responseName);
+            log.error("No response has been been found for responseName {}", StringEscapeUtils.escapeJava(responseName));
             return "";
         }
 

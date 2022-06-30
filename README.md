@@ -16,7 +16,7 @@ Using further nested directories is also supported.
 - Load static response JSON files (single files or from a directory)
 - Use templates in your responses in the form {slotName} or $slotName (see examples section)
 - Randomly chose a response from a set of given response variations
-- Can be used with [Rasa](https://rasa.com/)
+- Can be used with [Rasa](https://rasa.com/) (Last tested with Rasa 3.2.1)
 
 ### Environment Variable
 

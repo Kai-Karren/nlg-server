@@ -13,7 +13,7 @@ public class StaticResponseManager {
 
     private Map<String, Object> nameToResponseMapping;
 
-    private static StaticResponseManager staticResponseManager = new StaticResponseManager();
+    private static final StaticResponseManager staticResponseManager = new StaticResponseManager();
 
     public void initializeResponses(Map<String, Object> nameToResponseMapping){
         this.nameToResponseMapping = nameToResponseMapping;
